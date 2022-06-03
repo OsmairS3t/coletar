@@ -4,7 +4,7 @@ import { TextInputProps } from 'react-native';
 import { Container, Label } from './styles';
 
 interface Props extends TextInputProps {
-  label: string;
+  label?: string;
 }
 
 export function Input({ label, ...rest }: Props) {

@@ -7,6 +7,7 @@ export declare global {
     interface RootParamList {
       home: undefined;
       search: PointNavigationProps;
+      locationpoint: undefined;
     }
   }
 }
