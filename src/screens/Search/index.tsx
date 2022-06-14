@@ -8,7 +8,16 @@ import { InputSearch } from '../../components/Forms/InputSearch';
 import {
   Container,
   GroupForm,
-  Title
+  Title,
+  SearchedPlace,
+  TitleSP,
+  SubTitleSP,
+  ObjSearched,
+  ObjSearchedData,
+  ObjSName,
+  ObjSAddress,
+  ObjSMore,
+  ObjSMoreIcon
 } from './styles'
 
 export function Search() {
@@ -20,19 +29,56 @@ export function Search() {
   return (
     <Container>
       <Header onBack={handleBack} />
-      <GroupForm>
-          <Title>Busca Pontos de Coleta</Title>
-          
-          <Select
-            label='Tipos de pontos de coleta'
-            placeholder='Coleta seletiva'
-            onPress={()=>{}}
-          />
 
-          <InputSearch 
-            placeholder="Pesquisar"
-          />
-       </GroupForm>   
+      <GroupForm>
+        <Title>Busca Pontos de Coleta</Title>
+
+        <Select
+          placeholder='Tipo de ponto de coleta'
+          icon='chevron-down'
+          onPress={() => { }}
+        />
+
+        <InputSearch
+          placeholder="Pesquisar"
+          icon='search'
+        />
+      </GroupForm>
+      <SearchedPlace>
+        <TitleSP>Locais encontrados</TitleSP>
+        <SubTitleSP>Tipo de pesquisa: nenhum</SubTitleSP>
+        
+        <ObjSearched>
+          <ObjSearchedData>
+            <ObjSName>Mercado Souza</ObjSName>
+            <ObjSAddress>Av. Noroest n.152 - Centro - Anápolis-GO</ObjSAddress>
+          </ObjSearchedData>
+          <ObjSMore>
+            <ObjSMoreIcon name="plus-square" size={30} />
+          </ObjSMore>
+        </ObjSearched>
+        
+        <ObjSearched>
+          <ObjSearchedData>
+            <ObjSName>Mercado Souza</ObjSName>
+            <ObjSAddress>Av. Noroest n.152 - Centro - Anápolis-GO</ObjSAddress>
+          </ObjSearchedData>
+          <ObjSMore>
+            <ObjSMoreIcon name="plus-square" size={30} />
+          </ObjSMore>
+        </ObjSearched>
+        
+        <ObjSearched>
+          <ObjSearchedData>
+            <ObjSName>Mercado Souza</ObjSName>
+            <ObjSAddress>Av. Noroest n.152 - Centro - Anápolis-GO</ObjSAddress>
+          </ObjSearchedData>
+          <ObjSMore>
+            <ObjSMoreIcon name="plus-square" size={30} />
+          </ObjSMore>
+        </ObjSearched>
+        
+      </SearchedPlace>
     </Container>
   )
 }

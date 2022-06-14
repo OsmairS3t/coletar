@@ -4,21 +4,25 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   margin: 20px 0px;
+  height: ${RFValue(80)}px;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
+  background-color: ${({ theme }) => theme.colors.green_lignt2};
 `;
 
 export const ButtonBack = styled.TouchableOpacity``;
 
-export const IconBack = styled(Feather)`
-color: ${({ theme }) => theme.colors.green_dark};
-margin-right: 10px;
+export const TitleImg = styled.View`
+  width: 90%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;
 
-export const Title = styled.Text`
-font-family: ${({ theme }) => theme.fonts.bold};
-font-size: ${RFValue(20)}px;
+export const IconBack = styled(Feather)`
+  color: ${({ theme }) => theme.colors.green_dark};
+  margin-right: 10px;
 `;
 
 export const ImgLogo = styled.Image`

@@ -4,18 +4,18 @@ import { Input } from '../Input';
 
 import {
   Container,
-  Title
+  Icon
 } from './styles';
 
 interface Props extends TextInputProps {
   placeholder: string;
+  icon: string;
 }
-export function InputSearch({placeholder}:Props) {
+export function InputSearch({placeholder, icon}:Props) {
   return (
     <Container>
-      <Input 
-        placeholder={placeholder} 
-      />
+      <Input placeholder={placeholder} />
+      <Icon name={icon} size={25} />
     </Container>
   )
 }

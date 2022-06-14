@@ -5,14 +5,13 @@ import {
   Container,
   ButtonBack,
   IconBack,
-  ImgLogo,
-  Title
+  TitleImg,
+  ImgLogo
 } from './styles';
 
 interface Props {
   onBack: () => void;
 }
-
 
 export function Header({onBack}: Props) {
   const logotipo = '../../assets/logotipoColetar.png';
@@ -22,8 +21,9 @@ export function Header({onBack}: Props) {
         <ButtonBack  onPress={onBack}>
           <IconBack name="arrow-left" size={25} />
         </ButtonBack>
-        <ImgLogo source={require(logotipo)} />
-        <Title>Coletar</Title>
+        <TitleImg>
+          <ImgLogo source={require(logotipo)} />
+        </TitleImg>
     </Container>
   )
 }

@@ -5,6 +5,7 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   width: 100%;
+  margin-top: 10px;
 `;
 
 export const Label = styled.Text`
@@ -25,6 +26,7 @@ export const InputText = styled.TouchableOpacity`
 
 export const Placeholder = styled.Text`
   font-size: ${RFValue(14)}px;
+  color: ${({ theme }) => theme.colors.silver_dark};
 `;
 
 export const Icon = styled(Feather)`
