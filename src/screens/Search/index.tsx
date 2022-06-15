@@ -1,27 +1,24 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { Header } from '../../components/Header';
 
 import { Select } from '../../components/Forms/Select';
 import { InputSearch } from '../../components/Forms/InputSearch';
+import { SearchedPlace } from '../../components/SearchedPlace';
+import { objPlace } from '../../utils/data';
 
 import {
   Container,
   GroupForm,
   Title,
-  SearchedPlace,
-  TitleSP,
-  SubTitleSP,
-  ObjSearched,
-  ObjSearchedData,
-  ObjSName,
-  ObjSAddress,
-  ObjSMore,
-  ObjSMoreIcon
+  SearchedContainer,
+  TitleSC,
+  SubTitleSC,
 } from './styles'
 
 export function Search() {
   const navigation = useNavigation();
+  const [searchText, setSearchText] = useState<string>("Teste");
 
   function handleBack() {
     navigation.navigate('home')
@@ -38,47 +35,24 @@ export function Search() {
           icon='chevron-down'
           onPress={() => { }}
         />
-
-        <InputSearch
+        
+{/*         <InputSearch
+          valueSearch={searchText}
+          setValueSearch={setSearchText}
           placeholder="Pesquisar"
           icon='search'
         />
+ */}
       </GroupForm>
-      <SearchedPlace>
-        <TitleSP>Locais encontrados</TitleSP>
-        <SubTitleSP>Tipo de pesquisa: nenhum</SubTitleSP>
+
+      <SearchedContainer>
+        <TitleSC>Locais encontrados</TitleSC>
+        <SubTitleSC>Tipo de pesquisa: nenhum</SubTitleSC>
         
-        <ObjSearched>
-          <ObjSearchedData>
-            <ObjSName>Mercado Souza</ObjSName>
-            <ObjSAddress>Av. Noroest n.152 - Centro - Anápolis-GO</ObjSAddress>
-          </ObjSearchedData>
-          <ObjSMore>
-            <ObjSMoreIcon name="plus-square" size={30} />
-          </ObjSMore>
-        </ObjSearched>
-        
-        <ObjSearched>
-          <ObjSearchedData>
-            <ObjSName>Mercado Souza</ObjSName>
-            <ObjSAddress>Av. Noroest n.152 - Centro - Anápolis-GO</ObjSAddress>
-          </ObjSearchedData>
-          <ObjSMore>
-            <ObjSMoreIcon name="plus-square" size={30} />
-          </ObjSMore>
-        </ObjSearched>
-        
-        <ObjSearched>
-          <ObjSearchedData>
-            <ObjSName>Mercado Souza</ObjSName>
-            <ObjSAddress>Av. Noroest n.152 - Centro - Anápolis-GO</ObjSAddress>
-          </ObjSearchedData>
-          <ObjSMore>
-            <ObjSMoreIcon name="plus-square" size={30} />
-          </ObjSMore>
-        </ObjSearched>
-        
-      </SearchedPlace>
+        <SearchedPlace 
+          data={objPlace}
+        />
+      </SearchedContainer>
     </Container>
   )
 }

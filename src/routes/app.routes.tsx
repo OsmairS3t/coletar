@@ -1,18 +1,48 @@
 import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useTheme } from 'styled-components'
 
 import {Home} from '../screens/Home';
 import {Search} from '../screens/Search';
 import {LocationPoint} from '../screens/LocationPoint';
+import { MaterialIcons } from '@expo/vector-icons';
 
-const { Navigator, Screen } = createNativeStackNavigator();
+const { Navigator, Screen } = createBottomTabNavigator();
 
 export function AppRoutes() {
+  const theme = useTheme();
+
   return (
-    <Navigator screenOptions={{ headerShown: false}}>
-      <Screen name="home" component={Home} />
-      <Screen name="search" component={Search} />
-      <Screen name="locationpoint" component={LocationPoint} />
+    <Navigator screenOptions={{ 
+      headerShown: false,
+      tabBarActiveTintColor: theme.colors.green_dark,
+      tabBarActiveBackgroundColor: theme.colors.green_lignt2,
+      tabBarInactiveBackgroundColor: theme.colors.green_lignt2,
+      tabBarLabelPosition: 'below-icon',
+      
+    }}>
+      <Screen name="Buscar" component={Search} 
+        options={{
+          tabBarIcon: (({ size, color }) =>
+            <MaterialIcons
+              name="search"
+              size={size}
+              color={color}
+            />
+          )
+        }}
+      />
+      <Screen name="Locais" component={LocationPoint} 
+        options={{
+          tabBarIcon: (({ size, color }) =>
+            <MaterialIcons
+              name="location-on"
+              size={size}
+              color={color}
+            />
+          )
+        }}
+      />
     </Navigator>
   )
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Image } from 'react-native';
 
 import {
   Container,
@@ -18,12 +17,12 @@ export function Header({onBack}: Props) {
 
   return (
     <Container>
-        <ButtonBack  onPress={onBack}>
-          <IconBack name="arrow-left" size={25} />
-        </ButtonBack>
         <TitleImg>
           <ImgLogo source={require(logotipo)} />
         </TitleImg>
+        <ButtonBack  onPress={onBack}>
+          <IconBack name="x" size={25} />
+        </ButtonBack>
     </Container>
   )
 }

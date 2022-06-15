@@ -28,10 +28,7 @@ export function Home() {
       <Logo source={require(logoImg)} />
       <Description>AQUI VOCÊ ENCONTRA O LOCAL IDEAL PARA  DEPOSITAR SEUS RESÍDUOS</Description>
       <Footer>
-        <ButtonForm 
-          title='Localizar pontos de Coleta'
-          onPress={handleSearchPage}
-        />
+        <ButtonForm title='Localizar pontos de Coleta' onPress={()=>navigation.navigate('approutes')} />
         <FooterImg source={require(footerImg)} />
       </Footer>
     </Container>

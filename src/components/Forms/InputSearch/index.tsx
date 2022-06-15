@@ -1,6 +1,5 @@
 import React from 'react';
-import { TextInputProps } from 'react-native';
-import { Input } from '../Input';
+import { TextInput, TextInputProps } from 'react-native';
 
 import {
   Container,
@@ -8,13 +7,20 @@ import {
 } from './styles';
 
 interface Props extends TextInputProps {
-  placeholder: string;
   icon: string;
+  placeholder: string;
+  valueSearch: string;
+  setValueSearch: (valueSearch:string)=>void;
 }
-export function InputSearch({placeholder, icon}:Props) {
+export function InputSearch({ placeholder, icon, valueSearch, setValueSearch }:Props) {
+
   return (
     <Container>
-      <Input placeholder={placeholder} />
+      <TextInput 
+        value={valueSearch}
+        onChangeText={value=>setValueSearch(value)}
+        placeholder={placeholder} 
+      />
       <Icon name={icon} size={25} />
     </Container>
   )

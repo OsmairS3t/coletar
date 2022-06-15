@@ -5,6 +5,7 @@ export type PointNavigationProps = {
 export declare global {
   namespace ReactNavigation {
     interface RootParamList {
+      approutes: undefined;
       home: undefined;
       search: PointNavigationProps;
       locationpoint: undefined;

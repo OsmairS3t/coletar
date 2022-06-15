@@ -16,7 +16,7 @@ export function Select({ label, icon, placeholder, onPress }: Props) {
      
       <InputText onPress={onPress}>
         <Placeholder>{placeholder}</Placeholder>
-        {!!icon && <Icon name={icon} size={20} />}
+        {!!icon && <Icon name={icon} size={30} />}
       </InputText>
       
     </Container>

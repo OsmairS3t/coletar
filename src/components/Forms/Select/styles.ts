@@ -16,12 +16,13 @@ export const Label = styled.Text`
 `;
 
 export const InputText = styled.TouchableOpacity`
-  height: 50px;
+  height: 60px;
   padding: 10px;
   background-color: ${({ theme }) => theme.colors.silver_light};
-  border-radius: 5px;
+  border-radius: 10px;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 `;
 
 export const Placeholder = styled.Text`
@@ -30,5 +31,5 @@ export const Placeholder = styled.Text`
 `;
 
 export const Icon = styled(Feather)`
-  width: ${RFValue(20)}px;
+  width: ${RFValue(30)}px;
 `;

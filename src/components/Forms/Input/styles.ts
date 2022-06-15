@@ -3,7 +3,8 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   width: 100%;
-  height: 40px;
+  height: 60px;
+  background-color: ${({ theme }) => theme.colors.silver_light};
 `;
 
 export const Label = styled.Text`
