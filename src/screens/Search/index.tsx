@@ -1,11 +1,14 @@
-import React,{useState} from 'react';
+import React, { useEffect, useState } from 'react';
+import {TouchableWithoutFeedback, Keyboard, FlatList} from 'react-native';
+
 import { useNavigation } from '@react-navigation/native';
 import { Header } from '../../components/Header';
 
-import { useForm } from 'react-hook-form';
-import { InputSearch } from '../../components/Forms/InputSearch';
 import { SearchedPlace } from '../../components/SearchedPlace';
-import { objPlace } from '../../utils/data';
+import { Input } from '../../components/Forms/Input';
+
+import { IPlace } from '../../utils/interface';
+import { places } from '../../utils/data';
 
 import {
   Container,
@@ -13,46 +16,73 @@ import {
   Title,
   SearchedContainer,
   TitleSC,
-  SubTitleSC,
+  PlaceNotFound
 } from './styles'
-
-interface SearchProps {
-  search: string;
-}
 
 export function Search() {
   const navigation = useNavigation();
-  const [searchText, setSearchText] = useState<string>('');
-  const { handleSubmit, control } = useForm<SearchProps>();
+  const [searched, setSearched] = useState('');
+  const [placeFounded, setPlaceFounded] = useState<IPlace[]>([{
+    id: '',
+    name: '',
+    address: {
+        zipcode: '',
+        street: '',
+        district: '',
+        city: '',
+        state: '',
+      },
+      longitude: '',
+      latitude: '',
+      londelta: '',
+      latdelta: '',
+  }]);
 
   function handleBack() {
     navigation.navigate('home')
   }
+
+  useEffect(()=>{
+    const objPlace:IPlace[] = places.filter(item => item.address.street.includes(searched))
+    setPlaceFounded(objPlace);
+  },[searched]);
+
   return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <Container>
       <Header onBack={handleBack} />
 
       <GroupForm>
-        <Title>Busca Pontos de Coleta</Title>
- 
-        <InputSearch
-          control={control}
-          placeholder="Pesquisar"
-          icon='search'
-          keyboardType='numeric'
-          
-        />
- 
-      </GroupForm>
+        <Title>Busca Locais de Pontos de Coleta:</Title>
 
-      <SearchedContainer>
-        <TitleSC>Locais encontrados</TitleSC>
-        <SubTitleSC>Tipo de pesquisa: nenhum</SubTitleSC>
-        
-        <SearchedPlace 
-          data={objPlace}
+        <Input 
+          value={searched}
+          onChangeText={searched => setSearched(searched)}
+          placeholder='Digige o nome da Rua/Av.'
+          autoCapitalize='characters'
+          autoCorrect={false}
         />
-      </SearchedContainer>
+
+      </GroupForm>
+      {
+        !SearchedPlace ?
+          <PlaceNotFound>Não foram encontrados locais nesta rua digitada.</PlaceNotFound>
+        : 
+          <SearchedContainer>
+          <TitleSC>Locais encontrados:</TitleSC>
+
+            <FlatList
+              data={placeFounded}
+              renderItem={({item}) => (
+                <SearchedPlace
+                  data={item}
+                />
+              )}
+            />
+        </SearchedContainer>
+      }        
     </Container>
+    </TouchableWithoutFeedback>
   )
 }
+

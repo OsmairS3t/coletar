@@ -1,41 +1,43 @@
 import React from 'react';
-import { TextInput, TextInputProps } from 'react-native';
+import { TextInputProps } from 'react-native';
 import { Controller, Control } from 'react-hook-form';
 
-import { Input } from '../../Forms/Input';
+import { Input } from '../Input';
 
 import {
   Container,
-  Icon
+  ButtonSearch,
+  Icon,
+  Error
 } from './styles';
 
-interface SearchProps {
-  search: string;
-}
-
 interface Props extends TextInputProps {
-  icon: string;
-  placeholder: string;
-  control: Control<SearchProps>;
+  name: string;
+  control: Control<any>;
+  error?: string;
+  icon?: string;
+  onPress: () => void;
 }
 
-export function InputSearch({ icon, placeholder, control, ...rest }: Props) {
-
+export function InputSearch({ icon, name, control, error, onPress, ...rest }: Props) {
   return (
     <Container>
       <Controller
-        name="search"
         control={control}
+        name={name}
         render={({ field: { onChange, value } }) => (
           <Input
-            placeholder={placeholder}
             onChangeText={onChange}
             value={value as string}
             {...rest}
           />
         )}
+        {...rest}
       />
-      <Icon name={icon} size={25} />
+      <ButtonSearch onPress={onPress}>
+        <Icon name={icon} size={25} />
+      </ButtonSearch>
+      {error && <Error>{error}</Error>}
     </Container>
   )
 }

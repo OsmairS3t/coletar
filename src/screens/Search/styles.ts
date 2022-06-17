@@ -7,8 +7,8 @@ export const Container = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-size: ${RFValue(20)}px;
-  font-family: ${({ theme }) => theme.fonts.regular};
+  font-size: ${RFValue(16)}px;
+  font-family: ${({ theme }) => theme.fonts.bold};
 `;
 
 export const Form = styled.View`
@@ -22,7 +22,7 @@ export const GroupForm = styled.View`
 
 export const SearchedContainer = styled.View`
   flex: 1;
-  background-color: ${({ theme }) => theme.colors.silver_light};
+  background-color: ${({ theme }) => theme.colors.background};
   margin-bottom: 10px;
 `;
 
@@ -31,10 +31,8 @@ export const TitleSC = styled.Text`
   font-size: ${RFValue(16)}px;
   font-family: ${({ theme }) => theme.fonts.bold};
 `;
-  
-export const SubTitleSC = styled.Text`
-  padding: 0px 10px;
-  font-size: ${RFValue(14)}px;
-  font-family: ${({ theme }) => theme.fonts.bold};
-`;
 
+export const PlaceNotFound = styled.Text`
+  color: ${({theme})=>theme.colors.silver}
+  font-size: ${RFValue(12)}px;
+`;

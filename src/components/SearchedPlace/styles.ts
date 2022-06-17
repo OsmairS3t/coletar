@@ -4,10 +4,10 @@ import { Feather } from '@expo/vector-icons';
 
 export const Container = styled.View`
     flex-direction: row;
+    justify-content: center;
     padding: 10px;
-    border-bottom-width: 1px;
-    border-style: dashed;
-    border-color: silver; 
+    background-color: ${({ theme }) => theme.colors.silver_light};
+    margin: 5px 0px;
 `;
 
 export const PlaceData = styled.View`
@@ -22,7 +22,9 @@ export const PlaceAddress = styled.Text`
     font-size: ${RFValue(10)}px;
 `;
 
-export const PlaceMore = styled.TouchableOpacity``;
+export const PlaceMore = styled.TouchableOpacity`
+    justify-content: center;
+`;
 
 export const Icon = styled<any>(Feather)``;
 

@@ -9,9 +9,16 @@ export const Container = styled.View`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    border-radius: 15px;
 `;
 
-export const Icon = styled<any>(Feather)`
+export const ButtonSearch = styled.TouchableOpacity`
   position: absolute;
   right: 15px;
+`;
+
+export const Icon = styled<any>(Feather)``;
+
+export const Error = styled.Text`
+  color: ${({ theme }) => theme.colors.red_light}
 `;
