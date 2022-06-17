@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { Header } from '../../components/Header';
 
-import { Select } from '../../components/Forms/Select';
+import { useForm } from 'react-hook-form';
 import { InputSearch } from '../../components/Forms/InputSearch';
 import { SearchedPlace } from '../../components/SearchedPlace';
 import { objPlace } from '../../utils/data';
@@ -16,9 +16,14 @@ import {
   SubTitleSC,
 } from './styles'
 
+interface SearchProps {
+  search: string;
+}
+
 export function Search() {
   const navigation = useNavigation();
-  const [searchText, setSearchText] = useState<string>("Teste");
+  const [searchText, setSearchText] = useState<string>('');
+  const { handleSubmit, control } = useForm<SearchProps>();
 
   function handleBack() {
     navigation.navigate('home')
@@ -29,20 +34,15 @@ export function Search() {
 
       <GroupForm>
         <Title>Busca Pontos de Coleta</Title>
-
-        <Select
-          placeholder='Tipo de ponto de coleta'
-          icon='chevron-down'
-          onPress={() => { }}
-        />
-        
-{/*         <InputSearch
-          valueSearch={searchText}
-          setValueSearch={setSearchText}
+ 
+        <InputSearch
+          control={control}
           placeholder="Pesquisar"
           icon='search'
+          keyboardType='numeric'
+          
         />
- */}
+ 
       </GroupForm>
 
       <SearchedContainer>
