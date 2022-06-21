@@ -19,20 +19,24 @@ import {
 import { Header } from '../../components/Header';
 
 export function LocationPoint() {
+  const lati = -16.394840;
+  const long = -48.982879;
+  const londelta = 0.09;
+  const latdelta = 0.04;
   const navigation = useNavigation();
   const [modalOpen, setModalOpen] = useState(false);
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const [coordMarker, setCoordMarker] = useState({
-    latitude: -16.394840,
-    longitude: -48.982879
+    latitude: lati,
+    longitude: long
   });
 
   const [origin, setOrigin] = useState({
-    latitude: -16.394840,
-    longitude: -48.982879,
-    latitudeDelta: 0.09,
-    longitudeDelta: 0.04,
+    latitude: long,
+    longitude: lati,
+    latitudeDelta: londelta,
+    longitudeDelta: latdelta,
   });
 
   useEffect(() => {
@@ -45,14 +49,14 @@ export function LocationPoint() {
       let newLocation = await Location.getCurrentPositionAsync({});
       setLocation(newLocation);
       setOrigin({
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude,
-        latitudeDelta: -16.394840,
-        longitudeDelta: -48.982879
+        latitude: newLocation.coords.latitude,
+        longitude: newLocation.coords.longitude,
+        latitudeDelta: londelta,
+        longitudeDelta: latdelta
       })
       setCoordMarker({
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude
+        latitude: newLocation.coords.latitude,
+        longitude: newLocation.coords.longitude
       })
     })();
   }, [])
@@ -90,8 +94,8 @@ export function LocationPoint() {
           >
             <Marker
               coordinate={{
-                latitude: coordMarker.latitude,
-                longitude: coordMarker.longitude
+                latitude: lati,
+                longitude: long
               }}
               title={"Title"}
               description={"description"}
