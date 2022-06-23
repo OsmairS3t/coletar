@@ -25,7 +25,7 @@ export const GroupForm = styled.View``;
 export const Mapa = styled(MapView)`
   margin-top: 15px;
   width: 100%;
-  height: 60%;
+  height: 420px;
 `;
 
 export const ListSelect = styled.View`

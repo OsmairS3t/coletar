@@ -15,3 +15,15 @@ export interface IPlace {
     londelta: string;
     latdelta: string;
 }
+
+export interface ICoordinate {
+    latitude: number;
+    longitude: number;
+}
+
+export interface ICoordinateMarker {
+    id: number;
+    coordinate: ICoordinate;
+    title: string;
+    description: string;
+}

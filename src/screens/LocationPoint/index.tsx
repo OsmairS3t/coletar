@@ -18,25 +18,31 @@ import {
 } from './styles';
 import { Header } from '../../components/Header';
 
+import { arrCoordMarker } from '../../utils/data'; 
+
 export function LocationPoint() {
-  const lati = -16.394840;
-  const long = -48.982879;
-  const londelta = 0.09;
-  const latdelta = 0.04;
+  const lati = -16.3923183;
+  const long = -48.9817117;
+  const latdelta = 0.00922;
+  const londelta = 0.00421;
+  const coordinateMarker = 
+    {
+      latitude: -16.3923183,
+      longitude: -48.9817117,
+    }
+
   const navigation = useNavigation();
   const [modalOpen, setModalOpen] = useState(false);
-  const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const [coordMarker, setCoordMarker] = useState({
     latitude: lati,
     longitude: long
   });
-
   const [origin, setOrigin] = useState({
-    latitude: long,
-    longitude: lati,
-    latitudeDelta: londelta,
-    longitudeDelta: latdelta,
+    latitude: lati,
+    longitude: long,
+    latitudeDelta: latdelta,
+    longitudeDelta: londelta,
   });
 
   useEffect(() => {
@@ -47,12 +53,11 @@ export function LocationPoint() {
         return;
       }
       let newLocation = await Location.getCurrentPositionAsync({});
-      setLocation(newLocation);
       setOrigin({
         latitude: newLocation.coords.latitude,
         longitude: newLocation.coords.longitude,
-        latitudeDelta: londelta,
-        longitudeDelta: latdelta
+        latitudeDelta: latdelta,
+        longitudeDelta: londelta
       })
       setCoordMarker({
         latitude: newLocation.coords.latitude,
@@ -80,7 +85,7 @@ export function LocationPoint() {
       <Form>
         <GroupForm>
           <Title>Busca Pontos de Coleta</Title>
-          
+
           <Select
             label='Tipos de pontos de coleta'
             placeholder='Coleta seletiva'
@@ -92,14 +97,16 @@ export function LocationPoint() {
             showUserLocation={true}
             loadingEnabled={true}
           >
-            <Marker
-              coordinate={{
-                latitude: lati,
-                longitude: long
-              }}
-              title={"Title"}
-              description={"description"}
-            />
+            {
+              arrCoordMarker.map(item => (
+                <Marker
+                  key={item.id}
+                  coordinate={item.coordinate}
+                  title={item.title}
+                  description={item.description}
+                />
+              ))
+            }
           </Mapa>
 
           <Modal
