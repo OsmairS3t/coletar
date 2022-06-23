@@ -25,6 +25,11 @@ export function Search() {
   const [placeFounded, setPlaceFounded] = useState<IPlace[]>([{
     id: '',
     name: '',
+    description: '',
+    coordinate: {
+      latitude: 0,
+      longitude: 0
+    },
     address: {
         zipcode: '',
         street: '',
@@ -32,14 +37,16 @@ export function Search() {
         city: '',
         state: '',
       },
-      longitude: '',
-      latitude: '',
       londelta: '',
       latdelta: '',
   }]);
 
   function handleBack() {
     navigation.navigate('home')
+  }
+
+  function handleDetailPoint(id: string) {
+    navigation.navigate('detailpoint');
   }
 
   useEffect(()=>{
@@ -76,6 +83,7 @@ export function Search() {
               renderItem={({item}) => (
                 <SearchedPlace
                   data={item}
+                  onPress={()=>handleDetailPoint(item.id)}
                 />
               )}
             />

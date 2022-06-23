@@ -24,16 +24,18 @@ import {
 
  interface Props {
     data: PropsType;
+    onPress: ()=>void;
  }
 
-export function SearchedPlace({data}: Props) {
+export function SearchedPlace({data, onPress}: Props) {
+    
     return (
         <Container>
             <PlaceData>
                 <PlaceName>{data.name}</PlaceName>
                 <PlaceAddress>{data.address.street} - {data.address.district} - {data.address.city} / {data.address.state} - {data.address.zipcode}</PlaceAddress>
             </PlaceData>
-            <PlaceMore>
+            <PlaceMore onPress={onPress}>
                 <Icon name="plus-square" size={30} />
             </PlaceMore>
         </Container>

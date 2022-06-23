@@ -2,46 +2,55 @@ import { ICoordinateMarker } from "./interface"
 
 export const places = [{
     id: 'afastatodomaldemim',
-    name: 'Mercadinho do Seu Zé',
+    name: 'Araujo House',
+    description: 'House of Osmair, Wanessa and Raphael',
     address: {
-        zipcode: '75135033',
-        street: 'Av. Brasil n.125',
-        district: 'Setor Central',
+        zipcode: '75135030',
+        street: 'Rua Fildecina M. Santos Qd39 Lt26',
+        district: 'Calixtópolis II Etapa',
         city: 'Anápolis',
         state: 'GO',
     },
-    longitude: '',
-    latitude: '',
+    coordinate: {
+        latitude: -16.3923183,
+        longitude: -48.9817117
+    },
     londelta: '',
     latdelta: '',
 },
 {
     id: 'todomallongedemim',
-    name: 'Mercearia dona Maria',
+    name: 'Supermercado',
+    description: 'Perola Supermercado',
+    coordinate: {
+        latitude: -16.39677623530074,
+        longitude: -48.979459914433185
+    },
     address: {
-        zipcode: '75135030',
-        street: 'Rua Anapolis qd38 Lt12',
+        zipcode: '75135000',
+        street: 'Rua Luziânia qd20 Lt20',
         district: 'Parque Calixtopolis',
         city: 'Anápolis',
         state: 'GO',
     },
-    longitude: '',
-    latitude: '',
     londelta: '',
     latdelta: '',
 },
 {
     id: 'nenhummalpertodemim',
-    name: 'Praça Bom Jesus',
+    name: 'Maria House',
+    description: 'House Mother of Osmair',
+    coordinate: {
+        latitude: -16.394625430885622,
+        longitude: -48.98005219135306
+    },
     address: {
         zipcode: '75100970',
-        street: 'AV. Goiás n10',
-        district: 'Setor Central',
+        street: 'Rua Anápolis Qd38 Lt12',
+        district: 'Parque Calixtopolis',
         city: 'Anápolis',
         state: 'GO',
     },
-    longitude: '',
-    latitude: '',
     londelta: '',
     latdelta: '',
 }
@@ -59,14 +68,14 @@ export const arrCoordMarker: ICoordinateMarker[] = [
     },
     {
         id: 2,
-        coordinate: { 
+        title: 'Supermercado',
+        description: 'Perola Supermercado',
+        coordinate: {
             latitude: -16.39677623530074,
             longitude: -48.979459914433185
         },
-        title: 'Supermercado',
-        description: 'Perola Supermercado'
     },
-    { 
+    {
         id: 3,
         coordinate: {
             latitude: -16.394625430885622,

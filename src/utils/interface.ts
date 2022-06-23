@@ -9,9 +9,9 @@ type Address = {
 export interface IPlace {
     id: string;
     name: string;
+    description: string;
+    coordinate: ICoordinate;
     address: Address;
-    longitude: string;
-    latitude: string;
     londelta: string;
     latdelta: string;
 }

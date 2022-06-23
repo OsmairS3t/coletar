@@ -9,6 +9,7 @@ export declare global {
       home: undefined;
       search: PointNavigationProps;
       locationpoint: undefined;
+      detailpoint: PointNavigationProps;
     }
   }
 }

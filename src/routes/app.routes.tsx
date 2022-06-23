@@ -2,9 +2,8 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useTheme } from 'styled-components'
 
-import {Home} from '../screens/Home';
-import {Search} from '../screens/Search';
-import {LocationPoint} from '../screens/LocationPoint';
+import { Search } from '../screens/Search';
+import { LocationPoint } from '../screens/LocationPoint';
 import { MaterialIcons } from '@expo/vector-icons';
 
 const { Navigator, Screen } = createBottomTabNavigator();
