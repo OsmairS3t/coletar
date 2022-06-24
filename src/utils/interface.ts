@@ -6,16 +6,6 @@ type Address = {
     state: string;
 }
 
-export interface IPlace {
-    id: string;
-    name: string;
-    description: string;
-    coordinate: ICoordinate;
-    address: Address;
-    londelta: string;
-    latdelta: string;
-}
-
 export interface ICoordinate {
     latitude: number;
     longitude: number;
@@ -26,4 +16,14 @@ export interface ICoordinateMarker {
     coordinate: ICoordinate;
     title: string;
     description: string;
+}
+
+export interface IPlace {
+    id: string;
+    name: string;
+    description: string;
+    coordinate: ICoordinate;
+    address: Address;
+    londelta: string;
+    latdelta: string;
 }

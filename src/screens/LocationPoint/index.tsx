@@ -18,26 +18,16 @@ import {
 } from './styles';
 import { Header } from '../../components/Header';
 
-import { arrCoordMarker } from '../../utils/data'; 
+import { places } from '../../utils/data'; 
 
 export function LocationPoint() {
   const lati = -16.3923183;
   const long = -48.9817117;
   const latdelta = 0.00922;
   const londelta = 0.00421;
-  const coordinateMarker = 
-    {
-      latitude: -16.3923183,
-      longitude: -48.9817117,
-    }
-
   const navigation = useNavigation();
   const [modalOpen, setModalOpen] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
-  const [coordMarker, setCoordMarker] = useState({
-    latitude: lati,
-    longitude: long
-  });
   const [origin, setOrigin] = useState({
     latitude: lati,
     longitude: long,
@@ -58,10 +48,6 @@ export function LocationPoint() {
         longitude: newLocation.coords.longitude,
         latitudeDelta: latdelta,
         longitudeDelta: londelta
-      })
-      setCoordMarker({
-        latitude: newLocation.coords.latitude,
-        longitude: newLocation.coords.longitude
       })
     })();
   }, [])
@@ -98,11 +84,11 @@ export function LocationPoint() {
             loadingEnabled={true}
           >
             {
-              arrCoordMarker.map(item => (
+              places.map(item => (
                 <Marker
                   key={item.id}
                   coordinate={item.coordinate}
-                  title={item.title}
+                  title={item.name}
                   description={item.description}
                 />
               ))
