@@ -1,9 +1,8 @@
+import styled from 'styled-components/native';
 import { Feather } from '@expo/vector-icons';
 import { RFValue } from 'react-native-responsive-fontsize';
-import styled from 'styled-components/native';
 
 export const Container = styled.View`
-  margin: 20px 0px;
   height: ${RFValue(80)}px;
   flex-direction: row;
   justify-content: center;

@@ -10,15 +10,13 @@ import {
   Form,
   GroupForm,
   Mapa,
-  ListSelect,
-  ItemSelect,
-  ButtonSelect,
-  TitleButtonSelect,
   PointDescription
 } from './styles';
 import { Header } from '../../components/Header';
 
-import { places } from '../../utils/data'; 
+import { places } from '../../utils/data';
+import { IPlace } from '../../utils/interface';
+import { Footer } from '../../components/Footer';
 
 export function LocationPoint() {
   const lati = -16.3923183;
@@ -26,7 +24,6 @@ export function LocationPoint() {
   const latdelta = 0.00922;
   const londelta = 0.00421;
   const navigation = useNavigation();
-  const [modalOpen, setModalOpen] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
   const [origin, setOrigin] = useState({
     latitude: lati,
@@ -56,71 +53,38 @@ export function LocationPoint() {
     navigation.navigate('home');
   }
 
-  function handleModalOpen() {
-    setModalOpen(true);
-  }
-
-  function handleModalClose() {
-    setModalOpen(false);
+  function handleDetailPoint(localPoint: IPlace) {
+    navigation.navigate('detailpoint', localPoint);
   }
 
   return (
-    <Container>
+    <>
       <Header onBack={handleBack} />
-
-      <Form>
-        <GroupForm>
-          <Title>Busca Pontos de Coleta</Title>
-
-          <Select
-            label='Tipos de pontos de coleta'
-            placeholder='Coleta seletiva'
-            onPress={handleModalOpen}
-          />
-
-          <Mapa
-            initialRegion={origin}
-            showUserLocation={true}
-            loadingEnabled={true}
-          >
-            {
-              places.map(item => (
-                <Marker
-                  key={item.id}
-                  coordinate={item.coordinate}
-                  title={item.name}
-                  description={item.description}
-                />
-              ))
-            }
-          </Mapa>
-
-          <Modal
-            animationType="fade"
-            transparent={true}
-            visible={modalOpen}
-            onRequestClose={() => {
-              Alert.alert("Modal has been closed.");
-              setModalOpen(!modalOpen);
-            }}
-          >
-            <ListSelect>
-              <ItemSelect>Coleta Seletiva</ItemSelect>
-              <ItemSelect>Local para depósito de Insumos</ItemSelect>
-            </ListSelect>
-            <ButtonSelect
-              onPress={handleModalClose}
+      <Container>
+        <Form>
+          <GroupForm>
+            <Title>Locais cadastrados:</Title>
+            <Mapa
+              initialRegion={origin}
+              showUserLocation={true}
+              loadingEnabled={true}
             >
-              <TitleButtonSelect>Selecionar</TitleButtonSelect>
-            </ButtonSelect>
-          </Modal>
-        </GroupForm>
-
-        <PointDescription>
-          <Image source={require('../../assets/footerImg.png')} />
-        </PointDescription>
-      </Form>
-    </Container>
-
+              {
+                places.map(item => (
+                  <Marker
+                    key={item.id}
+                    coordinate={item.coordinate}
+                    title={item.name}
+                    description={item.description}
+                    onCalloutPress={() => handleDetailPoint(item)}
+                  />
+                ))
+              }
+            </Mapa>
+          </GroupForm>
+        </Form>
+      </Container>
+      <Footer />
+    </>
   )
 }

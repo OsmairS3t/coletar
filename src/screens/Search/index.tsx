@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {TouchableWithoutFeedback, Keyboard, FlatList} from 'react-native';
+import { TouchableWithoutFeedback, Keyboard, FlatList } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 import { Header } from '../../components/Header';
@@ -18,6 +18,7 @@ import {
   TitleSC,
   PlaceNotFound
 } from './styles'
+import { Footer } from '../../components/Footer';
 
 export function Search() {
   const navigation = useNavigation();
@@ -31,66 +32,69 @@ export function Search() {
       longitude: 0
     },
     address: {
-        zipcode: '',
-        street: '',
-        district: '',
-        city: '',
-        state: '',
-      },
-      londelta: '',
-      latdelta: '',
+      zipcode: '',
+      street: '',
+      district: '',
+      city: '',
+      state: '',
+    },
+    londelta: '',
+    latdelta: '',
   }]);
 
   function handleBack() {
     navigation.navigate('home')
   }
 
-  function handleDetailPoint(id: string) {
-    navigation.navigate('detailpoint');
+  function handleDetailPoint(localPoint: IPlace) {
+    navigation.navigate('detailpoint', localPoint);
   }
 
-  useEffect(()=>{
-    const objPlace:IPlace[] = places.filter(item => item.address.street.includes(searched))
+  useEffect(() => {
+    const objPlace: IPlace[] = places.filter(item => item.address.street.includes(searched))
     setPlaceFounded(objPlace);
-  },[searched]);
+  }, [searched]);
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-    <Container>
+    <>
       <Header onBack={handleBack} />
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <Container>
 
-      <GroupForm>
-        <Title>Busca Locais de Pontos de Coleta:</Title>
+          <GroupForm>
+            <Title>Buscar Locais de Pontos de Coleta:</Title>
 
-        <Input 
-          value={searched}
-          onChangeText={searched => setSearched(searched)}
-          placeholder='Digige o nome da Rua/Av.'
-          autoCapitalize='characters'
-          autoCorrect={false}
-        />
-
-      </GroupForm>
-      {
-        !SearchedPlace ?
-          <PlaceNotFound>Não foram encontrados locais nesta rua digitada.</PlaceNotFound>
-        : 
-          <SearchedContainer>
-          <TitleSC>Locais encontrados:</TitleSC>
-
-            <FlatList
-              data={placeFounded}
-              renderItem={({item}) => (
-                <SearchedPlace
-                  data={item}
-                  onPress={()=>handleDetailPoint(item.id)}
-                />
-              )}
+            <Input
+              value={searched}
+              onChangeText={searched => setSearched(searched)}
+              placeholder='Digige o nome da Rua/Av.'
+              autoCapitalize='characters'
+              autoCorrect={false}
             />
-        </SearchedContainer>
-      }        
-    </Container>
-    </TouchableWithoutFeedback>
+
+          </GroupForm>
+          {
+            !SearchedPlace ?
+              <PlaceNotFound>Não foram encontrados locais nesta rua digitada.</PlaceNotFound>
+              :
+              <SearchedContainer>
+                <TitleSC>Locais encontrados:</TitleSC>
+
+                <FlatList
+                  data={placeFounded}
+                  renderItem={({ item }) => (
+                    <SearchedPlace
+                      data={item}
+                      onPress={() => handleDetailPoint(item)}
+                    />
+                  )}
+                />
+              </SearchedContainer>
+          }
+        </Container>
+      </TouchableWithoutFeedback>
+      <Footer />
+    </>
   )
 }
 

@@ -1,3 +1,5 @@
+import { IPlace } from "../utils/interface";
+
 export type PointNavigationProps = {
   id?: string;
 }
@@ -9,7 +11,7 @@ export declare global {
       home: undefined;
       search: PointNavigationProps;
       locationpoint: undefined;
-      detailpoint: PointNavigationProps;
+      detailpoint: IPlace;
     }
   }
 }

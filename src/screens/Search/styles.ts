@@ -1,8 +1,10 @@
 import { RFValue, RFPercentage } from 'react-native-responsive-fontsize';
+import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-  height: 100%;
+  height: 81%;
+  margin-top: ${getStatusBarHeight() + RFValue(5)}px;
   margin: 0px 16px;
 `;
 

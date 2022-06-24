@@ -1,5 +1,3 @@
-import { ICoordinateMarker } from "./interface"
-
 export const places = [{
     id: 'afastatodomaldemim',
     name: 'Araujo House',
@@ -53,61 +51,36 @@ export const places = [{
     },
     londelta: '',
     latdelta: '',
-}
-]
-
-export const arrCoordMarker: ICoordinateMarker[] = [
-    {
-        id: 1,
-        coordinate: {
-            latitude: -16.3923183,
-            longitude: -48.9817117
-        },
-        title: 'Araujo House',
-        description: 'House of Osmair, Wanessa and Raphael'
+},
+{
+    id: 'aquiemaisinteressante',
+    name: 'FAMA',
+    description: 'Faculdade Metropolitna de Anápolis',
+    coordinate: { 
+        latitude: -16.294211530893673,
+        longitude: -48.96870164437788
     },
-    {
-        id: 2,
-        title: 'Supermercado',
-        description: 'Perola Supermercado',
-        coordinate: {
-            latitude: -16.39677623530074,
-            longitude: -48.979459914433185
-        },
-    },
-    {
-        id: 3,
-        coordinate: {
-            latitude: -16.394625430885622,
-            longitude: -48.98005219135306
-        },
-        title: 'Maria House',
-        description: 'House Mother of Osmair'
-    },
-    {
-        id: 4,
-        coordinate: {
-            latitude: -16.39653369154222,
-            longitude: -48.98079801711758
-        },
-        title: 'Pamonharia',
-        description: 'House of pamonhas sell.'
-    },
-]
-
-export const objPlace = {
-    id: 'afastatodomaldemim',
-    name: 'Mercadinho do Seu Zé',
     address: {
-        zipcode: '75135033',
-        street: 'Av. Brasil n.125',
-        district: 'Centro',
+        zipcode: '75064780',
+        street: 'Av. Fernando Costa',
+        district: 'Vila Jaiara',
         city: 'Anápolis',
-        state: 'GO'
+        state: 'GO',
     },
-    longitude: '',
-    latitude: '',
     londelta: '',
     latdelta: '',
 }
+]
 
+export const items = [
+    {
+        id_place: 'aquiemaisinteressante', 
+        id: 'item1',
+        name: 'Óleo de cozinha'
+    },
+    {
+        id_place: 'aquiemaisinteressante', 
+        id: 'item2',
+        name: 'Eletrônicos'
+    },
+]
