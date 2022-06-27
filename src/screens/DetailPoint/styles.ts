@@ -22,26 +22,14 @@ export const GroupLocal = styled.View`
     padding: 5px 10px;
 `;
 
-export const LocalName = styled.Text`
-    font-family: ${({theme}) => theme.fonts.bold};
-    color: ${({theme}) => theme.colors.green_dark};
-    font-size: ${RFValue(14)}px;
-`;
-
-export const Bold = styled.Text`
+export const TitlePrimary = styled.Text`
     font-family: ${({theme}) => theme.fonts.bold};
     color: ${({theme}) => theme.colors.green_dark};
     font-size: ${RFValue(12)}px;
 `;
 
-export const LocalAddress = styled.Text`
-    font-family: ${({theme}) => theme.fonts.regular};
-    color: ${({theme}) => theme.colors.silver_dark};
-    font-size: ${RFValue(12)}px;
-`;
-
-export const LocalHour = styled.Text`
-    font-family: ${({theme}) => theme.fonts.regular};
+export const TitleSecondary = styled.Text`
+    font-family: ${({theme}) => theme.fonts.bold};
     color: ${({theme}) => theme.colors.silver_dark};
     font-size: ${RFValue(12)}px;
 `;
@@ -50,6 +38,18 @@ export const Back = styled.TouchableOpacity``;
 
 export const Icon = styled<any>(Feather)``;
 
-export const TextButton = styled.Text`
-    color: ${({ theme }) => theme.colors.green_dark};
+export const GroupItem = styled.View`
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
 `;
+
+export const NotFound = styled.Text`
+    width: 100%;
+    padding: 0px 10px;
+    font-family: ${({theme}) => theme.fonts.regular};
+    color: ${({theme}) => theme.colors.green_dark};
+    font-size: ${RFValue(12)}px;
+`;
+

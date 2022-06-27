@@ -15,8 +15,16 @@ export interface IPlace {
     id: string;
     name: string;
     description: string;
+    funcionamento: string;
     coordinate: ICoordinate;
     address: Address;
     londelta: string;
     latdelta: string;
+}
+
+export interface IItems {
+    id_place: string;
+    id: string;
+    name: string;
+    urlimgage: string;
 }
