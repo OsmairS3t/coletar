@@ -4,6 +4,10 @@ export type PointNavigationProps = {
   id?: string;
 }
 
+export type PointOnMapProps = {
+  objPlace: IPlace;
+}
+
 export declare global {
   namespace ReactNavigation {
     interface RootParamList {
@@ -12,6 +16,7 @@ export declare global {
       search: PointNavigationProps;
       locationpoint: undefined;
       detailpoint: IPlace;
+      pointonmap: PointOnMapProps;
     }
   }
 }

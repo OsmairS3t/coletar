@@ -45,6 +45,8 @@ export const GroupItem = styled.View`
     flex-wrap: wrap;
 `;
 
+export const ButtonMap = styled.TouchableOpacity``;
+
 export const NotFound = styled.Text`
     width: 100%;
     padding: 0px 10px;

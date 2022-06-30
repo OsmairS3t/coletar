@@ -11,6 +11,7 @@ import {
     Icon,
     GroupLocal,
     GroupItem,
+    ButtonMap,
     NotFound,
     TitlePrimary,
     TitleSecondary
@@ -25,6 +26,10 @@ export function DetailPoint() {
 
     function handleBack() {
         navigation.goBack();
+    }
+
+    function handleViewOnMap(objPlace: IPlace) {
+        navigation.navigate('pointonmap', {objPlace});
     }
 
     return (
@@ -44,6 +49,9 @@ export function DetailPoint() {
                     {localPoint.address.street} - {localPoint.address.district} - {localPoint.address.city} - {localPoint.address.state}
                 </TitleSecondary>
                 <TitleSecondary><TitlePrimary>Funcionamento:</TitlePrimary> {localPoint.funcionamento}</TitleSecondary>
+                <ButtonMap onPress={()=>handleViewOnMap(localPoint)}>
+                    <TitlePrimary>Ver no mapa</TitlePrimary>
+                </ButtonMap>
                 <TitlePrimary>Tipo(s) de insumo(s):</TitlePrimary>
             </GroupLocal>
 
