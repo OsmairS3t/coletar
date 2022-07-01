@@ -18,8 +18,8 @@ export interface IPlace {
     funcionamento: string;
     coordinate: ICoordinate;
     address: Address;
-    londelta: string;
-    latdelta: string;
+    londelta: number;
+    latdelta: number;
 }
 
 export interface IItems {

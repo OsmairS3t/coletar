@@ -14,8 +14,8 @@ export const places = [{
         latitude: -16.3923183,
         longitude: -48.9817117
     },
-    londelta: '',
-    latdelta: '',
+    latdelta: 0.00922,
+    londelta: 0.00421,
 },
 {
     id: 'todomallongedemim',
@@ -33,8 +33,8 @@ export const places = [{
         city: 'Anápolis',
         state: 'GO',
     },
-    londelta: '',
-    latdelta: '',
+    latdelta: 0.00922,
+    londelta: 0.00421,
 },
 {
     id: 'nenhummalpertodemim',
@@ -52,8 +52,8 @@ export const places = [{
         city: 'Anápolis',
         state: 'GO',
     },
-    londelta: '',
-    latdelta: '',
+    latdelta: 0.00922,
+    londelta: 0.00421,
 },
 {
     id: 'aquiemaisinteressante',
@@ -71,8 +71,8 @@ export const places = [{
         city: 'Anápolis',
         state: 'GO',
     },
-    londelta: '',
-    latdelta: '',
+    latdelta: 0.00922,
+    londelta: 0.00421,
 }
 ]
 
